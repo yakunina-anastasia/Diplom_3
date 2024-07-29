@@ -6,8 +6,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.page.object.HomePage;
 
 import java.time.Duration;
@@ -42,6 +40,8 @@ public class ConstructorTest {
     @Test
     @DisplayName("Открытие меню булок")
     public void buns() {
+        homePage.clickFillingButton();
+        homePage.clickBunButton();
         Assert.assertTrue(homePage.bunButtonWorking());
     }
 

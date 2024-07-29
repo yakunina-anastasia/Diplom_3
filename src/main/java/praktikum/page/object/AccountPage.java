@@ -11,7 +11,7 @@ public class AccountPage {
     private final By exitButton = By.xpath(".//button[text()='Выход']");
     private final By logo = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']");
     private final By constructorButton = By.xpath(".//p[text()='Конструктор']");
-    private final By profileHeader = By.xpath("//*[@id=\"root\"]/div/main/div/nav/ul/li[1]/a");
+    private final By profileHeader = By.xpath(".//a[text()='Профиль']");
 
     public AccountPage(WebDriver driver) {
         this.driver = driver;
