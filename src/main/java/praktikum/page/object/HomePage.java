@@ -3,6 +3,7 @@ package praktikum.page.object;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -14,14 +15,10 @@ public class HomePage {
     private final By accountButton = By.xpath(".//p[text()='Личный Кабинет']");
     private final By makeBurger = By.xpath(".//h1[text()='Соберите бургер']");
     private final By createOrderButton = By.xpath(".//button[text()='Оформить заказ']");
-
     private final By bunButton = By.xpath(".//span[text() = 'Булки']");
-    public final By bunButtonWorking = By.xpath(".//span[text()='Булки']/parent::div");
-
     private final By sauceButton = By.xpath(".//span[text()='Соусы']/parent::div");
-    private final By saucesButtonWorking = By.xpath(".//div[(contains(@class, 'tab_tab_type_current__2BEPc')) and (contains(span/text(),'Соусы'))]");
     private final By fillingButton = By.xpath(".//span[text()='Начинки']/parent::div");
-    public final By fillingsButtonWorking = By.xpath(".//div[(contains(@class, 'tab_tab_type_current__2BEPc')) and (contains(span/text(),'Начинки'))]");
+    private final By checkingClass = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -74,13 +71,9 @@ public class HomePage {
         driver.findElement(makeBurger).isDisplayed();
     }
 
-    public boolean bunButtonWorking() {
-        return driver.findElement(bunButtonWorking).isEnabled();
-    }
-    public boolean saucesButtonWorking() {
-        return driver.findElement(saucesButtonWorking).isEnabled();
-    }
-    public boolean fillingsButtonWorking() {
-        return driver.findElement(fillingsButtonWorking).isEnabled();
+    @Step("Проверка перехода по секциям")
+    public String getTextOfClass(){
+        WebElement menuSection = driver.findElement(checkingClass);
+        return menuSection.getText();
     }
 }

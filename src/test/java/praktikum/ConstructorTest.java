@@ -34,7 +34,7 @@ public class ConstructorTest {
     @DisplayName("Открытие меню соусов")
     public void sauce() {
         homePage.clickSauceButton();
-        Assert.assertTrue(homePage.saucesButtonWorking());
+        Assert.assertEquals("Соусы", homePage.getTextOfClass());
     }
 
     @Test
@@ -42,13 +42,13 @@ public class ConstructorTest {
     public void buns() {
         homePage.clickFillingButton();
         homePage.clickBunButton();
-        Assert.assertTrue(homePage.bunButtonWorking());
+        Assert.assertEquals("Булки", homePage.getTextOfClass());
     }
 
     @Test
     @DisplayName("Открытие меню начинок")
     public void fillings () {
         homePage.clickFillingButton();
-        Assert.assertTrue(homePage.fillingsButtonWorking());
+        Assert.assertEquals("Начинки", homePage.getTextOfClass());
     }
 }
